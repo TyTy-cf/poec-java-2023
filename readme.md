@@ -38,7 +38,7 @@ git pull
 
 - Créer une branche et se déplace dessus:
   ``
-  git checkout -D NOM_BRANCHE
+  git checkout -b NOM_BRANCHE
   ``
 
 - Change de branche :
