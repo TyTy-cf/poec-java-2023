@@ -1,4 +1,4 @@
-package fr.ktourret.poec.algo;
+package fr.ktourret.poec.exos;
 
 import java.util.Calendar;
 import java.util.Date;
