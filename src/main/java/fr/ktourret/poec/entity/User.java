@@ -2,11 +2,11 @@ package fr.ktourret.poec.entity;
 
 public class User {
 
-    public String name;
+    private String name;
 
-    public int age;
+    private int age;
 
-    public String nationality = "Française";
+    private String nationality = "Française";
 
     public User() {
 
@@ -17,4 +17,23 @@ public class User {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
 }
