@@ -6,12 +6,12 @@ import fr.ktourret.poec.exos.ExoScanner;
 public class Main {
 
     public static void main(String[] args) {
-        (new Algo()).test();
+//        (new Algo()).test();
         (new ExoScanner()).test();
     }
 
     private static double getRandomBetween(int min, int max) {
-        return (Math.random() * (max - min)) + min;
+        return Math.floor((Math.random() * (max - min)) + min);
     }
 
 }
