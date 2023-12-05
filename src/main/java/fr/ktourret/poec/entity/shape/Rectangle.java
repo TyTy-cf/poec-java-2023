@@ -1,6 +1,6 @@
 package fr.ktourret.poec.entity.shape;
 
-public class Rectangle extends Shape {
+public class Rectangle extends AbstractShape {
 
     private double length;
 
