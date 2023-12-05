@@ -11,7 +11,9 @@ public class Scanner {
 //        System.out.println(exo4());
 //        System.out.println(exo5());
 //        System.out.println(exo6());
-        System.out.println(exo7());
+//        System.out.println(exo7());
+//        exo8();
+        System.out.println(exo10("Kenzi", -36));
     }
 
     private double exo1() {
@@ -62,4 +64,63 @@ public class Scanner {
         return Math.sqrt(sc.nextDouble());
     }
 
+    private void exo8() {
+        System.out.println("Je réfléchis à un nombre...");
+        int guessNumber = (int) Math.floor((Math.random() * 100) + 1);
+        System.out.println("Ca y est ! Devine ce nombre, tu as 10 essaies !");
+        boolean hasFound = false;
+        int turn = 1;
+        while (turn <= 10 && !hasFound) {
+            System.out.println("Essaie n°" + turn + "...");
+            int writtenNumber = sc.nextInt();
+            if (writtenNumber > guessNumber) {
+                if (turn != 10) {
+                    System.out.println("C'est plus petit !");
+                }
+            } else if (writtenNumber < guessNumber) {
+                if (turn != 10) {
+                    System.out.println("C'est plus grand !");
+                }
+            } else {
+                hasFound = true;
+            }
+            if (!hasFound) {
+                turn++;
+            }
+        }
+        String message = "Tu as perdu ! Le nombre à deviner était : " + guessNumber;
+        if (hasFound) {
+            message = "Félicitation ! Tu as trouvé le nombre en " + turn + " tour(s) !";
+        }
+        System.out.println(message);
+    }
+
+    private String exo10(String word, int shift) {
+        StringBuilder encrypt = new StringBuilder();
+        char[] alphabet = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        word = word.toLowerCase();
+        for (int i = 0; i < word.length(); i++) {
+            char letter = word.charAt(i);
+            int pos = getPos(alphabet, letter);
+            if (pos == -1) {
+                return "";
+            }
+            int newPos = (pos + shift) % 26;
+            if (newPos < 0) {
+                newPos += 26;
+            }
+            encrypt.append(alphabet[newPos]);
+        }
+
+        return encrypt.toString();
+    }
+
+    private int getPos(char[] alphabet, char letter) {
+        for (int i = 0; i < alphabet.length; i++) {
+            if (alphabet[i] == letter) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
