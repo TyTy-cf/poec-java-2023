@@ -2,6 +2,7 @@ package fr.ktourret.poec;
 
 import fr.ktourret.poec.entity.shape.Rectangle;
 import fr.ktourret.poec.entity.shape.Shape;
+import fr.ktourret.poec.entity.shape.Square;
 import fr.ktourret.poec.exos.Scanner;
 
 public class Main {
@@ -14,7 +15,8 @@ public class Main {
 //        System.out.println(p1);
 //        (new Scanner()).test();
         Shape r1 = new Rectangle(20, 10);
-        System.out.println(r1.calculateArea());
+        Shape s1 = new Square(12);
+        System.out.println(s1.calculateArea());
     }
 
     private static double getRandomBetween(int min, int max) {
