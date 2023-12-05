@@ -1,10 +1,8 @@
 package fr.ktourret.poec.exos;
 
-import java.util.Scanner;
+public class Scanner {
 
-public class ExoScanner {
-
-    private final Scanner sc = new Scanner(System.in);
+    private final java.util.Scanner sc = new java.util.Scanner(System.in);
 
     public void test() {
 //        System.out.println(exo1());
