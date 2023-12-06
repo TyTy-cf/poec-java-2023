@@ -9,7 +9,12 @@ public class ChessBoard {
 
     public ChessBoard() {
         board = new ArrayList<>();
-        // traitement pour créer le board...
+        char[] chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+        for (int y = 8; y >= 1 ; y--) {
+            for (char x : chars) {
+                System.out.println(x + "-" + y);
+            }
+        }
     }
 
     public List<Cell> getBoard() {

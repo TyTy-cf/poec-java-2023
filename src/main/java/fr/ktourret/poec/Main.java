@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 //        (new Algo()).test();
-        AbstractPiece p1 = new Rook(Color.BLACK);
-        AbstractPiece p2 = new Knight(Color.BLACK);
-        AbstractPiece p3 = new Pawn(Color.BLACK);
-        AbstractPiece p4 = new Pawn(Color.BLACK);
-
-        Cell cell = new Cell(1, 'a', Color.WHITE);
+//        AbstractPiece p1 = new Rook(Color.BLACK);
+//        AbstractPiece p2 = new Knight(Color.BLACK);
+//        AbstractPiece p3 = new Pawn(Color.BLACK);
+//        AbstractPiece p4 = new Pawn(Color.BLACK);
+//        Cell cell = new Cell(1, 'a', Color.WHITE);
+            new ChessBoard();
 
 //        System.out.println(p3.equals(p4));
 //        System.out.println(p2.getId());
