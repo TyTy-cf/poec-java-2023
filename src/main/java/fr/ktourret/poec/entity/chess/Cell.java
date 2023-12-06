@@ -14,9 +14,10 @@ public class Cell {
 
     private long id;
 
-    public Cell(int y, char x) {
+    public Cell(int y, char x, Color color) {
         this.y = y;
         this.x = x;
+        this.color = color;
         this.setId();
     }
 

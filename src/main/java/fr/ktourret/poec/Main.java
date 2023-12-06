@@ -15,8 +15,7 @@ public class Main {
         AbstractPiece p3 = new Pawn(Color.BLACK);
         AbstractPiece p4 = new Pawn(Color.BLACK);
 
-        Cell cell = new Cell(1, 'a');
-        cell.setColor(Color.WHITE);
+        Cell cell = new Cell(1, 'a', Color.WHITE);
 
 //        System.out.println(p3.equals(p4));
 //        System.out.println(p2.getId());
