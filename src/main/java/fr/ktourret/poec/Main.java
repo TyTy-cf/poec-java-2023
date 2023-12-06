@@ -10,10 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
 //        (new Algo()).test();
-        AbstractPiece p1 = new Rook("black");
-        AbstractPiece p2 = new Knight("black");
-        AbstractPiece p3 = new Pawn("black");
-        AbstractPiece p4 = new Pawn("black");
+        AbstractPiece p1 = new Rook(Color.BLACK);
+        AbstractPiece p2 = new Knight(Color.BLACK);
+        AbstractPiece p3 = new Pawn(Color.BLACK);
+        AbstractPiece p4 = new Pawn(Color.BLACK);
+
+        Cell cell = new Cell(1, 'a');
+        cell.setColor(Color.WHITE);
+
 //        System.out.println(p3.equals(p4));
 //        System.out.println(p2.getId());
 //        System.out.println(p3.getId());

@@ -2,10 +2,10 @@ package fr.ktourret.poec.entity.chess;
 
 public class Knight extends AbstractPiece {
 
-    public Knight(String color) {
+    public Knight(Color color) {
         super(color);
         image = "♘";
-        if (color.equals("white")) {
+        if (color.equals(Color.WHITE)) {
             image = "♞";
         }
     }

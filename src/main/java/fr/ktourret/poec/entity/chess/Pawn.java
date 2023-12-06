@@ -2,10 +2,10 @@ package fr.ktourret.poec.entity.chess;
 
 public class Pawn extends AbstractPiece implements PromotionInterface {
 
-    public Pawn(String color) {
+    public Pawn(Color color) {
         super(color);
         image = "♙";
-        if (color.equals("white")) {
+        if (color.equals(Color.WHITE)) {
             image = "♟";
         }
     }

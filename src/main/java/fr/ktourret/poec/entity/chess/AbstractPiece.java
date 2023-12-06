@@ -4,23 +4,23 @@ public abstract class AbstractPiece {
 
     private static long ID = 1L;
 
-    protected String color;
+    protected Color color;
 
     protected String image;
 
     protected long id;
 
-    protected AbstractPiece(String color) {
+    protected AbstractPiece(Color color) {
         this.id = AbstractPiece.ID;
         AbstractPiece.ID++;
         this.color = color;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

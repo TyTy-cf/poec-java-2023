@@ -1,13 +1,11 @@
 package fr.ktourret.poec.entity.chess;
 
-import java.util.Objects;
-
 public class Rook extends AbstractPiece {
 
-    public Rook(String color) {
+    public Rook(Color color) {
         super(color);
         image = "♖";
-        if (color.equals("white")) {
+        if (color.equals(Color.WHITE)) {
             image = "♜";
         }
     }

@@ -4,23 +4,23 @@ public class Cell {
 
     private static long ID = 1L;
 
-    private short y;
+    private int y;
 
     private char x;
 
-    private String color;
+    private Color color;
 
     private AbstractPiece piece;
 
     private long id;
 
-    public Cell(short y, char x) {
+    public Cell(int y, char x) {
         this.y = y;
         this.x = x;
         this.setId();
     }
 
-    public Cell(short y, char x, String color, AbstractPiece piece) {
+    public Cell(int y, char x, Color color, AbstractPiece piece) {
         this.y = y;
         this.x = x;
         this.color = color;
@@ -37,11 +37,11 @@ public class Cell {
         Cell.ID++;
     }
 
-    public short getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(short y) {
+    public void setY(int y) {
         this.y = y;
     }
 
@@ -53,11 +53,11 @@ public class Cell {
         this.x = x;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
