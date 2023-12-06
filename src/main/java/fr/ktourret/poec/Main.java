@@ -1,9 +1,7 @@
 package fr.ktourret.poec;
 
-import fr.ktourret.poec.entity.bank.BankAccount;
-import fr.ktourret.poec.entity.bank.BankAccountType;
-import fr.ktourret.poec.entity.bank.Client;
-import fr.ktourret.poec.entity.bank.Operation;
+import fr.ktourret.poec.entity.bank.*;
+import fr.ktourret.poec.entity.chess.*;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -12,10 +10,14 @@ public class Main {
 
     public static void main(String[] args) {
 //        (new Algo()).test();
-//        AbstractPiece p1 = new Rook("black");
-//        AbstractPiece p2 = new Knight("black");
-//        AbstractPiece p3 = new Pawn("black");
-//        System.out.println(p1);
+        AbstractPiece p1 = new Rook("black");
+        AbstractPiece p2 = new Knight("black");
+        AbstractPiece p3 = new Pawn("black");
+        AbstractPiece p4 = new Pawn("black");
+//        System.out.println(p3.equals(p4));
+//        System.out.println(p2.getId());
+//        System.out.println(p3.getId());
+//        System.out.println(p4.getId());
 //        (new Scanner()).test();
 //        AbstractShape r1 = new Rectangle(20, 10);
 //        AbstractShape s1 = new Square(12);
@@ -48,7 +50,9 @@ public class Main {
         ba.addOperation(new Operation(-45.0, "Internet", new Date()));
         ba.addOperation(new Operation(-90.0, "Elec/Gas", new Date()));
 
-        System.out.println(ba.getTotal());
+//        ChessArrayList<Rook> operations = new ChessArrayList<>();
+//        System.out.println(operations);
+//        System.out.println(ba.getType());
     }
 
     private static double getRandomBetween(int min, int max) {
