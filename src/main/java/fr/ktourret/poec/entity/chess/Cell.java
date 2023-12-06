@@ -4,7 +4,7 @@ public class Cell {
 
     private static long ID = 1L;
 
-    private int y;
+    private short y;
 
     private char x;
 
@@ -14,13 +14,13 @@ public class Cell {
 
     private long id;
 
-    public Cell(int y, char x) {
+    public Cell(short y, char x) {
         this.y = y;
         this.x = x;
         this.setId();
     }
 
-    public Cell(int y, char x, String color, AbstractPiece piece) {
+    public Cell(short y, char x, String color, AbstractPiece piece) {
         this.y = y;
         this.x = x;
         this.color = color;
@@ -37,11 +37,11 @@ public class Cell {
         Cell.ID++;
     }
 
-    public int getY() {
+    public short getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(short y) {
         this.y = y;
     }
 

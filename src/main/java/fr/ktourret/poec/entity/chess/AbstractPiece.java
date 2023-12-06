@@ -14,7 +14,6 @@ public abstract class AbstractPiece {
         this.id = AbstractPiece.ID;
         AbstractPiece.ID++;
         this.color = color;
-        this.image = "/resources/chess/" + getClass().getSimpleName().toLowerCase() + "-" + color + ".png";
     }
 
     public String getColor() {

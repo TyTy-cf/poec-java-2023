@@ -4,6 +4,10 @@ public class Knight extends AbstractPiece {
 
     public Knight(String color) {
         super(color);
+        image = "♘";
+        if (color.equals("white")) {
+            image = "♞";
+        }
     }
 
     @Override

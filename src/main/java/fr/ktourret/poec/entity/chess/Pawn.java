@@ -4,6 +4,10 @@ public class Pawn extends AbstractPiece implements PromotionInterface {
 
     public Pawn(String color) {
         super(color);
+        image = "♙";
+        if (color.equals("white")) {
+            image = "♟";
+        }
     }
 
     @Override
