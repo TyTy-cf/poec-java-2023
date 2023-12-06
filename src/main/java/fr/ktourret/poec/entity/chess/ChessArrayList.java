@@ -1,4 +1,4 @@
-package fr.ktourret.poec.entity.bank;
+package fr.ktourret.poec.entity.chess;
 
 import fr.ktourret.poec.entity.chess.AbstractPiece;
 
