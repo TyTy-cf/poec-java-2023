@@ -72,7 +72,11 @@ public class Cell {
 
     @Override
     public String toString() {
-        return this.x + this.y + " " + color.getColor();
+        String str = this.x  + "-" + this.y + " " + color.getColor();
+        if (piece != null) {
+            str += " (" + piece + ")";
+        }
+        return str;
     }
 
     @Override
