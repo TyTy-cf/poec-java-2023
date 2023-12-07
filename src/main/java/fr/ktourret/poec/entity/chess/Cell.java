@@ -12,6 +12,8 @@ public class Cell {
 
     private AbstractPiece piece;
 
+    private boolean isSelected = false;
+
     private long id;
 
     public Cell(int y, char x, Color color) {
@@ -36,6 +38,14 @@ public class Cell {
     private void setId() {
         this.id = Cell.ID;
         Cell.ID++;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public int getY() {
@@ -73,7 +83,9 @@ public class Cell {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.color == Color.BLACK) {
+        if (this.isSelected) {
+            sb.append(Color.SELECTED.getColor());
+        } else if (this.color == Color.BLACK) {
             sb.append("\u001B[40m");
         } else {
             sb.append("\u001B[47m");

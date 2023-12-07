@@ -18,7 +18,8 @@ public class Main {
 //        (new Algo()).test();
 //        (new Scanner()).test();
 //        exceptionExample();
-        System.out.println((new ChessBoard()));
+        ChessBoard chessBoard = new ChessBoard();
+        chessBoard.start();
     }
 
     private static void exceptionExample() {

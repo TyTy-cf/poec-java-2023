@@ -3,6 +3,7 @@ package fr.ktourret.poec.entity.chess;
 import java.nio.charset.CoderResult;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ChessBoard {
 
@@ -49,6 +50,34 @@ public class ChessBoard {
             }
         }
         return piece;
+    }
+
+    public void start() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(this);
+
+        String str = sc.nextLine();
+        System.out.println(str);
+
+        String[] coordinates = str.split(" ");
+        if (coordinates.length == 1) {
+            System.out.println("Erreur de formattage des coordonnées");
+            return;
+        }
+        if (!coordinates[0].matches("[a-h]")) {
+            System.out.println("La coordonnée en X doit être un seul caractère compris entre a et h");
+            return;
+        }
+        if (!coordinates[1].matches("[1-8]")) {
+            System.out.println("La coordonnée en Y doit être un seul chiffre compris entre 1 et 8");
+            return;
+        }
+
+        char x = coordinates[0].charAt(0);
+        int y = Integer.parseInt(coordinates[1]);
+        Cell selectedCell = getCellFromXY(x, y);
+
+        System.out.println(selectedCell);
     }
 
     public Cell getCellFromXY(char x, int y) {
