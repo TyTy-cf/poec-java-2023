@@ -1,14 +1,18 @@
 package fr.ktourret.poec.entity.chess;
 
-import java.nio.charset.CoderResult;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class ChessBoard {
 
     private final List<Cell> board;
+
+    private List<AbstractPiece> deadPieces = new ArrayList<>();
+
+    private int nbTurns = 1;
+
+    private Cell selectedCell;
 
     public ChessBoard() {
         board = new ArrayList<>();
@@ -56,33 +60,48 @@ public class ChessBoard {
     public void start() {
         Scanner sc = new Scanner(System.in);
         System.out.println(this);
+        System.out.println("Tour n°" + nbTurns);
         String str = sc.nextLine();
 
         while (!str.equals("ff")) {
-            String[] coordinates = str.split(" ");
-            if (coordinates.length == 1) {
-                System.out.println("Erreur de formattage des coordonnées");
-                return;
-            }
-            if (!coordinates[0].matches("[a-h]")) {
-                System.out.println("La coordonnée en X doit être un seul caractère compris entre a et h");
-                return;
-            }
-            if (!coordinates[1].matches("[1-8]")) {
-                System.out.println("La coordonnée en Y doit être un seul chiffre compris entre 1 et 8");
-                return;
-            }
+            try {
+                String[] coordinates = str.split(" ");
+                if (coordinates.length == 1) {
+                    throw new InvalidCoordinateFormatException(str);
+                }
+                if (!coordinates[0].matches("[a-h]") || !coordinates[1].matches("[1-8]")) {
+                    throw new InvalidCellException(str);
+                }
 
-            char x = coordinates[0].charAt(0);
-            int y = Integer.parseInt(coordinates[1]);
+                char x = coordinates[0].charAt(0);
+                int y = Integer.parseInt(coordinates[1]);
+                Cell tmp = getCellFromXY(x, y);
 
-            // Vérifier si une pièce existe sur la case
-            // si oui, on conserve la case dans un attribut de la classe ChessBoard (attribut à créer de nom selectedCell)
-            // l'utilisateur donne de nouvelles coordonnées
-            // si elles sont différentes de la case "selectedCell", alors
-            // on déplace la pièce dessus
-            Cell saved = getCellFromXY(x, y);
-            saved.setSelected(!saved.isSelected());
+                if (tmp.hasPiece() && selectedCell == null) {
+                    selectedCell = tmp;
+                    selectedCell.setSelected(!selectedCell.isSelected());
+                } else if (selectedCell == tmp) {
+                    selectedCell.setSelected(!selectedCell.isSelected());
+                    selectedCell = null;
+                } else {
+                    if (tmp.hasPiece() && tmp.getPiece().getColor().equals(selectedCell.getPiece().getColor())) {
+                        throw new InvalidMoveException();
+                    }
+                    selectedCell.setSelected(!selectedCell.isSelected());
+                    if (tmp.hasPiece()) {
+                        deadPieces.add(tmp.getPiece());
+                    }
+                    tmp.setPiece(selectedCell.getPiece());
+                    selectedCell.setPiece(null);
+                    selectedCell = null;
+                    nbTurns++;
+                    System.out.println("Il y a " + deadPieces.size() + " pièces mangée(s)");
+                    System.out.println("Tour n°" + nbTurns);
+                }
+
+            } catch (InvalidCoordinateFormatException | InvalidCellException | InvalidMoveException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println(this);
             str = sc.nextLine();
         }

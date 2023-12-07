@@ -80,6 +80,10 @@ public class Cell {
         this.piece = piece;
     }
 
+    public boolean hasPiece() {
+        return piece != null;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
