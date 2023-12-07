@@ -3,7 +3,6 @@ package fr.ktourret.poec;
 import fr.ktourret.poec.entity.bank.*;
 import fr.ktourret.poec.entity.chess.*;
 import fr.ktourret.poec.entity.shape.*;
-import fr.ktourret.poec.exos.Scanner;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -16,7 +15,7 @@ public class Main {
 //        mapExample();
 //        bankExo();
 //        (new Algo()).test();
-//        (new Scanner()).test();
+//        (new Scanner()).test();a
 //        exceptionExample();
         ChessBoard chessBoard = new ChessBoard();
         chessBoard.start();
