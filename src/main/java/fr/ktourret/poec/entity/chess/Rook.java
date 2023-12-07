@@ -4,10 +4,7 @@ public class Rook extends AbstractPiece {
 
     public Rook(Color color) {
         super(color);
-        image = "♖";
-        if (color.equals(Color.WHITE)) {
-            image = "♜";
-        }
+        image = "R";
     }
 
     @Override

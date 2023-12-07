@@ -1,9 +1,8 @@
 package fr.ktourret.poec.entity.chess;
 
 public enum Color {
-
-    BLACK("black"),
-    WHITE("white");
+    WHITE("\u001B[31m"),
+    BLACK("\u001B[34m");
 
     private final String color;
 

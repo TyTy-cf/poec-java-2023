@@ -4,10 +4,7 @@ public class Bishop extends AbstractPiece {
 
     public Bishop(Color color) {
         super(color);
-        image = "♗";
-        if (color.equals(Color.WHITE)) {
-            image = "♝";
-        }
+        image = "B";
     }
 
     @Override

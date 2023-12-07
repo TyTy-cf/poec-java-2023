@@ -68,7 +68,7 @@ public class ChessBoard {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         char[] chars = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-        sb.append(" ");
+        sb.append("  ");
         // Ajoute les lettre pour les colonnes
         for (char c : chars) {
             sb.append(" ");
@@ -84,6 +84,7 @@ public class ChessBoard {
             }
             if (i%8 == 0) {
                 sb.append(currentLine);
+                sb.append(" ");
             }
             sb.append(cell);
             if (i%8 == 7) {

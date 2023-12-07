@@ -72,14 +72,19 @@ public class Cell {
 
     @Override
     public String toString() {
-        if (piece != null) {
-            return  " " + piece.getImage();
+        StringBuilder sb = new StringBuilder();
+        if (this.color == Color.BLACK) {
+            sb.append("\u001B[40m");
+        } else {
+            sb.append("\u001B[47m");
         }
-        String color = " □ ";
-        if (this.color.equals(Color.WHITE)) {
-            color = " ■ ";
+        if (this.piece != null) {
+            sb.append(" ").append(this.getPiece().getColor().getColor()).append(this.piece.getImage()).append(" ");
+        } else {
+            sb.append("   ");
         }
-        return color;
+        sb.append("\u001B[0m");
+        return sb.toString();
     }
 
     @Override

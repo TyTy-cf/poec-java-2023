@@ -16,10 +16,9 @@ public class Main {
 //        mapExample();
 //        bankExo();
 //        (new Algo()).test();
-        (new Scanner()).test();
+//        (new Scanner()).test();
 //        exceptionExample();
-
-//        System.out.println((new ChessBoard()));
+        System.out.println((new ChessBoard()));
     }
 
     private static void exceptionExample() {
