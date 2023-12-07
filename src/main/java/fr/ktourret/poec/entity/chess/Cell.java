@@ -72,11 +72,14 @@ public class Cell {
 
     @Override
     public String toString() {
-        String str = this.x  + "-" + this.y + " " + color.getColor();
         if (piece != null) {
-            str += " (" + piece + ")";
+            return  " " + piece.getImage();
         }
-        return str;
+        String color = " □ ";
+        if (this.color.equals(Color.WHITE)) {
+            color = " ■ ";
+        }
+        return color;
     }
 
     @Override
