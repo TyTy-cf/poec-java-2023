@@ -1,5 +1,7 @@
 package fr.ktourret.poec.exos;
 
+import java.util.InputMismatchException;
+
 public class Scanner {
 
     private final java.util.Scanner sc = new java.util.Scanner(System.in);
@@ -12,7 +14,7 @@ public class Scanner {
 //        System.out.println(exo5());
 //        System.out.println(exo6());
 //        System.out.println(exo7());
-//        exo8();
+        exo8();
         System.out.println(exo10("Kenzi", -36));
     }
 
@@ -72,20 +74,26 @@ public class Scanner {
         int turn = 1;
         while (turn <= 10 && !hasFound) {
             System.out.println("Essaie n°" + turn + "...");
-            int writtenNumber = sc.nextInt();
-            if (writtenNumber > guessNumber) {
-                if (turn != 10) {
-                    System.out.println("C'est plus petit !");
+            int writtenNumber;
+            try {
+                writtenNumber = sc.nextInt();
+                if (writtenNumber > guessNumber) {
+                    if (turn != 10) {
+                        System.out.println("C'est plus petit !");
+                    }
+                } else if (writtenNumber < guessNumber) {
+                    if (turn != 10) {
+                        System.out.println("C'est plus grand !");
+                    }
+                } else {
+                    hasFound = true;
                 }
-            } else if (writtenNumber < guessNumber) {
-                if (turn != 10) {
-                    System.out.println("C'est plus grand !");
+                if (!hasFound) {
+                    turn++;
                 }
-            } else {
-                hasFound = true;
-            }
-            if (!hasFound) {
-                turn++;
+            } catch (InputMismatchException e) {
+                System.out.println("Saisit moi bien un nombre entier stp...");
+                sc.next();
             }
         }
         String message = "Tu as perdu ! Le nombre à deviner était : " + guessNumber;

@@ -2,10 +2,8 @@ package fr.ktourret.poec;
 
 import fr.ktourret.poec.entity.bank.*;
 import fr.ktourret.poec.entity.chess.*;
-import fr.ktourret.poec.entity.shape.AbstractShape;
-import fr.ktourret.poec.entity.shape.Circle;
-import fr.ktourret.poec.entity.shape.Rectangle;
-import fr.ktourret.poec.entity.shape.Square;
+import fr.ktourret.poec.entity.shape.*;
+import fr.ktourret.poec.exos.Scanner;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -18,12 +16,30 @@ public class Main {
 //        mapExample();
 //        bankExo();
 //        (new Algo()).test();
-//        (new Scanner()).test();
+        (new Scanner()).test();
+//        exceptionExample();
 
-        System.out.println((new ChessBoard()));
+//        System.out.println((new ChessBoard()));
     }
 
-    private static void mapExample() {
+    private static void exceptionExample() {
+        int a = 5;
+        try {
+            a = a / 0;
+        } catch (ArithmeticException e) {
+            a = 0;
+            System.out.println("Dans l'exception...");
+        }
+        System.out.println(a);
+        System.out.println("-----------------------------------");
+        try {
+            Circle c = new Circle(-5);
+        } catch (ShapeException e) {
+            System.out.println("On ne fait pas ça...");
+        }
+    }
+
+    private static void mapExample() throws ShapeException {
         Map<String, AbstractShape> map = new HashMap<>();
         AbstractShape r1 = new Rectangle(20, 10);
         AbstractShape s1 = new Square(12);
