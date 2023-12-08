@@ -8,9 +8,7 @@ public class Spotifish {
         User user = generateUser();
         System.out.println(user);
 
-        Playlist playlist  = generatePlaylist();
-        playlist.setName("My Best TOTO PLAYLIST");
-        playlist.setCreatedAt(new Date());
+        Playlist playlist = generatePlaylist("Zuper Playlist");
 
         user.addPlaylist(playlist);
 
@@ -18,8 +16,11 @@ public class Spotifish {
         System.out.println(user.getPlaylists().size());
     }
 
-    private Playlist generatePlaylist() {
-        return new Playlist();
+    private Playlist generatePlaylist(String name) {
+        Playlist playlist = new Playlist();
+        playlist.setName(name);
+        playlist.setCreatedAt(new Date());
+        return playlist;
     }
 
     private User generateUser() {
