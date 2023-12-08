@@ -17,4 +17,9 @@ public class SongOrder {
 
     private Song song;
 
+    @Override
+    public String toString() {
+        return "SongOrder (position : " + order + " + song : " + song + " ; SongStorage : " + songStorage.getName() + " )";
+    }
+
 }

@@ -33,4 +33,8 @@ public abstract class LikableItem {
         return users.size();
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " (name : " + this + " ; liked : " + getQtyLikes() + " )";
+    }
 }

@@ -34,4 +34,27 @@ public abstract class SongStorage extends LikableItem {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(getClass().getSimpleName());
+        sb.append(" ( name : ");
+        sb.append(name);
+        if (this instanceof Album) {
+            sb.append(" ; artist : ");
+            sb.append(((Album) this).getArtist());
+        } else if (this instanceof Playlist) {
+            sb.append(" ; propriétaire : ");
+            sb.append(((Playlist) this).getOwner());
+        }
+        sb.append(" ; durée : ");
+        sb.append(getDuration());
+        sb.append(" )");
+        sb.append("\n");
+        for (SongOrder so : songOrderList) {
+            sb.append(so);
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
 }
