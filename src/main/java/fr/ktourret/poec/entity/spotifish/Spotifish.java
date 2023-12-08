@@ -14,6 +14,14 @@ public class Spotifish {
 
         System.out.println(playlist);
         System.out.println(user.getPlaylists().size());
+
+        Artist artist = generateArtist("Toto");
+        Song song = generateSong("Toto's Song", 666);
+
+        artist.addSong(song);
+
+        System.out.println(artist);
+        System.out.println(song);
     }
 
     private Playlist generatePlaylist(String name) {
@@ -21,6 +29,19 @@ public class Spotifish {
         playlist.setName(name);
         playlist.setCreatedAt(new Date());
         return playlist;
+    }
+
+    private Artist generateArtist(String name) {
+        Artist artist = new Artist();
+        artist.setName(name);
+        return artist;
+    }
+
+    private Song generateSong(String name, int duration) {
+        Song song = new Song();
+        song.setName(name);
+        song.setDuration(duration);
+        return song;
     }
 
     private User generateUser() {

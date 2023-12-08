@@ -39,4 +39,9 @@ public class Artist extends LikableItem {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Artist(name : " + name + "; songs : " + songList.size() + ")";
+    }
+
 }

@@ -15,4 +15,9 @@ public class Song extends LikableItem {
 
     private Artist artist;
 
+    @Override
+    public String toString() {
+        return "Song(name : " + name + "; artist : " + artist.name + ")";
+    }
+
 }
