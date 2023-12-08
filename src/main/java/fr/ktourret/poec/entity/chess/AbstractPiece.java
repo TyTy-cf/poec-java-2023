@@ -1,5 +1,10 @@
 package fr.ktourret.poec.entity.chess;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public abstract class AbstractPiece {
 
     private static long ID = 1L;
@@ -14,30 +19,6 @@ public abstract class AbstractPiece {
         this.id = AbstractPiece.ID;
         AbstractPiece.ID++;
         this.color = color;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     @Override

@@ -1,5 +1,14 @@
 package fr.ktourret.poec.entity.chess;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Cell {
 
     private static long ID = 1L;
@@ -31,53 +40,9 @@ public class Cell {
         this.setId();
     }
 
-    public long getId() {
-        return id;
-    }
-
     private void setId() {
         this.id = Cell.ID;
         Cell.ID++;
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public char getX() {
-        return x;
-    }
-
-    public void setX(char x) {
-        this.x = x;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    public AbstractPiece getPiece() {
-        return piece;
-    }
-
-    public void setPiece(AbstractPiece piece) {
-        this.piece = piece;
     }
 
     public boolean hasPiece() {

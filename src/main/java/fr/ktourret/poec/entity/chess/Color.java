@@ -1,5 +1,10 @@
 package fr.ktourret.poec.entity.chess;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum Color {
     WHITE("\u001B[31m"),
     BLACK("\u001B[34m"),
@@ -7,11 +12,4 @@ public enum Color {
 
     private final String color;
 
-    Color(String color) {
-        this.color = color;
-    }
-
-    public String getColor() {
-        return color;
-    }
 }

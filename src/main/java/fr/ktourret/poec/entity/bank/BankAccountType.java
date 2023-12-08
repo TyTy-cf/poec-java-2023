@@ -1,5 +1,10 @@
 package fr.ktourret.poec.entity.bank;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum BankAccountType {
 
     CURRENT(1.055, "Current"),
@@ -8,19 +13,6 @@ public enum BankAccountType {
     private final double value;
 
     private final String type;
-
-    BankAccountType(double value, String type) {
-        this.value = value;
-        this.type = type;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public String getType() {
-        return type;
-    }
 
     @Override
     public String toString() {

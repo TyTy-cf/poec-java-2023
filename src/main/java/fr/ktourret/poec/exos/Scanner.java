@@ -1,7 +1,10 @@
 package fr.ktourret.poec.exos;
 
+import lombok.NoArgsConstructor;
+
 import java.util.InputMismatchException;
 
+@NoArgsConstructor
 public class Scanner {
 
     private final java.util.Scanner sc = new java.util.Scanner(System.in);

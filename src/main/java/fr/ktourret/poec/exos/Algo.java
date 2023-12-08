@@ -1,12 +1,13 @@
 package fr.ktourret.poec.exos;
 
+import lombok.NoArgsConstructor;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+@NoArgsConstructor
 public class Algo {
-
-    public Algo() { }
 
     public void test() {
 //        System.out.println(exo1(42));

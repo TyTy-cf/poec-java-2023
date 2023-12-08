@@ -1,9 +1,14 @@
 package fr.ktourret.poec.entity.chess;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+@Getter
+@Setter
 public class ChessBoard {
 
     private final List<Cell> board;
@@ -114,10 +119,6 @@ public class ChessBoard {
             }
         }
         return null;
-    }
-
-    public List<Cell> getBoard() {
-        return board;
     }
 
     @Override
