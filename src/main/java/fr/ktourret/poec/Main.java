@@ -3,16 +3,18 @@ package fr.ktourret.poec;
 import fr.ktourret.poec.entity.bank.*;
 import fr.ktourret.poec.entity.chess.*;
 import fr.ktourret.poec.entity.shape.*;
+import fr.ktourret.poec.entity.spotifish.Spotifish;
 
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        mapExample();
+//        mapExample();
 //        bankExo();
 //        (new Algo()).test();
-//        (new Scanner()).test();a
+        (new Spotifish()).test();
+//        (new Scanner()).test();
 //        exceptionExample();
 //        ChessBoard chessBoard = new ChessBoard();
 //        chessBoard.start();
