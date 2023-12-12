@@ -1,11 +1,15 @@
 package fr.ktourret.poec;
 
-import fr.ktourret.poec.entity.bank.*;
-import fr.ktourret.poec.entity.chess.*;
-import fr.ktourret.poec.entity.example.Singleton;
-import fr.ktourret.poec.entity.recipe_maker.*;
-import fr.ktourret.poec.entity.shape.*;
-import fr.ktourret.poec.entity.spotifish.Spotifish;
+import fr.ktourret.poec.courses.entity.bank.BankAccount;
+import fr.ktourret.poec.courses.entity.bank.BankAccountType;
+import fr.ktourret.poec.courses.entity.bank.Client;
+import fr.ktourret.poec.courses.entity.bank.Operation;
+import fr.ktourret.poec.courses.entity.recipe_maker.*;
+import fr.ktourret.poec.courses.entity.shape.AbstractShape;
+import fr.ktourret.poec.courses.entity.shape.Circle;
+import fr.ktourret.poec.courses.entity.shape.Rectangle;
+import fr.ktourret.poec.courses.entity.shape.Square;
+import fr.ktourret.poec.courses.entity.example.Singleton;
 
 import java.util.*;
 
