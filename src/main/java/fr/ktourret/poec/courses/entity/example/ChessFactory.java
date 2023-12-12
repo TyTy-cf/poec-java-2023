@@ -1,7 +1,6 @@
 package fr.ktourret.poec.courses.entity.example;
 
 import fr.ktourret.poec.courses.entity.chess.*;
-import fr.ktourret.poec.entity.chess.*;
 
 public class ChessFactory {
 
