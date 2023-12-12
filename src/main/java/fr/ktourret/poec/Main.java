@@ -2,6 +2,7 @@ package fr.ktourret.poec;
 
 import fr.ktourret.poec.entity.bank.*;
 import fr.ktourret.poec.entity.chess.*;
+import fr.ktourret.poec.entity.example.Singleton;
 import fr.ktourret.poec.entity.recipe_maker.*;
 import fr.ktourret.poec.entity.shape.*;
 import fr.ktourret.poec.entity.spotifish.Spotifish;
@@ -13,13 +14,22 @@ public class Main {
     public static void main(String[] args) {
 //        mapExample();
 //        bankExo();
-        cookMaker();
+//        cookMaker();
 //        (new Algo()).test();
 //        (new Spotifish()).test();
 //        (new Scanner()).test();
 //        exceptionExample();
 //        ChessBoard chessBoard = new ChessBoard();
 //        chessBoard.start();
+        singletonExample();
+    }
+
+    private static void singletonExample() {
+        Singleton singleton = Singleton.getInstance();
+        System.out.println(singleton);
+
+        Singleton singleton2 = Singleton.getInstance();
+        System.out.println(singleton2);
     }
 
     private static void exceptionExample() {

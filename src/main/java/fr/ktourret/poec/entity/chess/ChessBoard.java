@@ -1,10 +1,12 @@
 package fr.ktourret.poec.entity.chess;
 
+import fr.ktourret.poec.entity.example.ChessFactory;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 @Getter
@@ -41,22 +43,22 @@ public class ChessBoard {
                 colorPiece = Color.WHITE;
             }
             if ((x == 'h' || x == 'a') && (y == 1 || y == 8)) {
-                piece = new Rook(colorPiece);
+                piece = ChessFactory.getPiece(Rook.class.getSimpleName(), colorPiece);
             }
             if ((x == 'g' || x == 'b') && (y == 1 || y == 8)) {
-                piece = new Knight(colorPiece);
+                piece = ChessFactory.getPiece(Knight.class.getSimpleName(), colorPiece);
             }
             if ((x == 'c' || x == 'f') && (y == 1 || y == 8)) {
-                piece = new Bishop(colorPiece);
+                piece = ChessFactory.getPiece(Bishop.class.getSimpleName(), colorPiece);
             }
             if (x == 'd' && (y == 1 || y == 8)) {
-                piece = new Queen(colorPiece);
+                piece = ChessFactory.getPiece(Queen.class.getSimpleName(), colorPiece);
             }
             if (x == 'e' && (y == 1 || y == 8)) {
-                piece = new King(colorPiece);
+                piece = ChessFactory.getPiece(King.class.getSimpleName(), colorPiece);
             }
             if (y == 2 || y == 7) {
-                piece = new Pawn(colorPiece);
+                piece = ChessFactory.getPiece(Pawn.class.getSimpleName(), colorPiece);
             }
         }
         return piece;
