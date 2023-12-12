@@ -96,7 +96,16 @@ public class Main {
         myRecipe.addRecipeIngredient(new RecipeIngredient(celeri, Unit.GR, 200));
         myRecipe.addRecipeIngredient(new RecipeIngredient(whiteWine, Unit.CL, 25));
 
-        System.out.println(myRecipe);
+        Comment c1 = new Comment();
+        c1.setRating(5d);
+
+        Comment c2 = new Comment();
+        c2.setRating(4d);
+
+        myRecipe.addComment(c1);
+        myRecipe.addComment(c2);
+
+        System.out.println(myRecipe.getRating());
     }
 
     private static double getRandomBetween(int min, int max) {

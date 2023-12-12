@@ -57,6 +57,17 @@ public class Recipe {
         }
     }
 
+    public double getRating() {
+        if (comments.isEmpty()) {
+            return -1;
+        }
+        double rating = 0;
+        for (Comment comment : comments) {
+            rating += comment.getRating();
+        }
+        return rating / comments.size();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
