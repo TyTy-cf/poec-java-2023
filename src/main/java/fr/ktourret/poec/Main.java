@@ -2,6 +2,7 @@ package fr.ktourret.poec;
 
 import fr.ktourret.poec.entity.bank.*;
 import fr.ktourret.poec.entity.chess.*;
+import fr.ktourret.poec.entity.recipe_maker.*;
 import fr.ktourret.poec.entity.shape.*;
 import fr.ktourret.poec.entity.spotifish.Spotifish;
 
@@ -12,8 +13,9 @@ public class Main {
     public static void main(String[] args) {
 //        mapExample();
 //        bankExo();
+        cookMaker();
 //        (new Algo()).test();
-        (new Spotifish()).test();
+//        (new Spotifish()).test();
 //        (new Scanner()).test();
 //        exceptionExample();
 //        ChessBoard chessBoard = new ChessBoard();
@@ -80,6 +82,21 @@ public class Main {
         ba.addOperation(new Operation(-76.0, "Insurance", new Date()));
         ba.addOperation(new Operation(-45.0, "Internet", new Date()));
         ba.addOperation(new Operation(-90.0, "Elec/Gas", new Date()));
+    }
+
+    private static void cookMaker() {
+        Ingredient celeri = new Ingredient();
+        celeri.setName("Céleri");
+        Ingredient whiteWine = new Ingredient();
+        whiteWine.setName("Vin blanc");
+        whiteWine.addIngredientType(IngredientType.HAS_ALCOHOL);
+
+        Recipe myRecipe = new Recipe();
+        myRecipe.setName("Céleri au vin blanc");
+        myRecipe.addRecipeIngredient(new RecipeIngredient(celeri, Unit.GR, 200));
+        myRecipe.addRecipeIngredient(new RecipeIngredient(whiteWine, Unit.CL, 25));
+
+        System.out.println(myRecipe);
     }
 
     private static double getRandomBetween(int min, int max) {
