@@ -9,6 +9,12 @@ public abstract class AbstractRepository<T extends EntityInterface> {
 
     protected T object;
 
+    protected String tableName;
+
+    AbstractRepository(Class<T> className) {
+        tableName = className.getSimpleName().toLowerCase();
+    }
+
     // object.getClass().getSimpleName().toLowerCase() = nom de la table de l'objet
 
     abstract public List<T> findAll();

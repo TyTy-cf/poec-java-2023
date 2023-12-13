@@ -11,6 +11,10 @@ public class CountryRepository extends AbstractRepository<Country> {
 
     private final Connection connection = DBConnect.getConnection();
 
+    public CountryRepository() {
+        super(Country.class);
+    }
+
     @Override
     public List<Country> findAll() {
         List<Country> countries = new ArrayList<>();

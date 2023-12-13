@@ -1,11 +1,16 @@
 package fr.ktourret.poec.my_mvc.repository;
 
 import fr.ktourret.poec.my_mvc.entity.Category;
+import fr.ktourret.poec.my_mvc.entity.Country;
 
 import java.sql.ResultSet;
 import java.util.List;
 
 public class CategoryRepository extends AbstractRepository<Category> {
+
+    public CategoryRepository() {
+        super(Category.class);
+    }
 
     @Override
     protected Category getObjectFromResultSet(ResultSet rs) {
