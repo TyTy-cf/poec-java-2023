@@ -59,7 +59,14 @@ public class CountryRepository extends AbstractRepository<Country> {
 
     @Override
     public boolean delete(Country object) {
-        return false;
+        boolean isOK = true;
+        try {
+            PreparedStatement prepare = connection.prepareStatement("");
+        } catch (SQLException e) {
+            System.out.println("Something went wrong during delete of a Country : " + e.getMessage());
+            isOK = false;
+        }
+        return isOK;
     }
 
     @Override
