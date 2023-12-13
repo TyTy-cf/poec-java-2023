@@ -3,10 +3,8 @@ package fr.ktourret.poec.my_mvc.repository;
 import fr.ktourret.poec.my_mvc.entity.Country;
 import fr.ktourret.poec.my_mvc.service.DBConnect;
 
-import java.nio.channels.SelectableChannel;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,8 +87,13 @@ public class CountryRepository extends AbstractRepository<Country> {
         }
 
         List<Country> countries = new ArrayList<>();
+        String query = select.toString();
         try {
             Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()) {
+                countries.add(getObjectFromResultSet(rs));
+            }
         } catch (SQLException e) {
             System.out.println("Something goes wrong inside findBy for Country : " + e.getMessage());
         }
@@ -116,6 +119,13 @@ public class CountryRepository extends AbstractRepository<Country> {
 
             String query = "UPDATE country SET code = ?, name = ?, nationality = ?, slug = ?, url_flag = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, object.getCode());
+            stmt.setString(2, object.getName());
+            stmt.setString(3, object.getNationality());
+            stmt.setString(4, object.getSlug());
+            stmt.setString(5, object.getUrlFlag());
+            stmt.setLong(6, object.getId());
+            stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Something went wrong during update of a Country : " + e.getMessage());
         }
