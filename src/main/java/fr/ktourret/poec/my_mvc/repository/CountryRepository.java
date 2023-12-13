@@ -3,10 +3,7 @@ package fr.ktourret.poec.my_mvc.repository;
 import fr.ktourret.poec.my_mvc.entity.Country;
 import fr.ktourret.poec.my_mvc.service.DBConnect;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +37,20 @@ public class CountryRepository extends AbstractRepository<Country> {
 
     @Override
     public Country findOneBy(String field, Object value) {
-        return null;
+        Country country = null;
+        try {
+            PreparedStatement prepare = connection.prepareStatement(
+                    "SELECT * FROM country WHERE " + field + " = ?"
+            );
+            prepare.setObject(1, value);
+            ResultSet rs = prepare.executeQuery();
+            if (rs.first()) { // Vérifie si le premier élément existe
+                country = getObjectFromResultSet(rs);
+            }
+        } catch (SQLException e) {
+            System.out.println("Something goes wrong while calling fineOneBy from CountryRepository " + e.getMessage());
+        }
+        return country;
     }
 
     @Override
