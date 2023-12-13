@@ -3,9 +3,12 @@ package fr.ktourret.poec.my_mvc.repository;
 import fr.ktourret.poec.my_mvc.entity.Country;
 import fr.ktourret.poec.my_mvc.service.DBConnect;
 
+import java.nio.channels.SelectableChannel;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CountryRepository extends AbstractRepository<Country> {
 
@@ -58,6 +61,43 @@ public class CountryRepository extends AbstractRepository<Country> {
     }
 
     @Override
+    public List<Country> findBy(Map<String, Object> fields, Integer limit, Map<String, String> orders) {
+        StringBuilder select = new StringBuilder("SELECT * FROM country");
+        if (fields != null && !fields.isEmpty()) {
+            select.append(" WHERE ");
+            for (Map.Entry<String, Object> field : fields.entrySet()) {
+                select.append(field.getKey());
+                select.append(" = ");
+                select.append(field.getValue());
+                select.append(" AND ");
+            }
+            select.delete(select.length() - 4, select.length());
+        }
+        if (limit != null) {
+            select.append(" LIMIT ");
+            select.append(limit);
+        }
+        if (orders != null && !orders.isEmpty()) {
+            select.append(" ORDER BY ");
+            for (Map.Entry<String, String> order : orders.entrySet()) {
+                select.append(order.getKey());
+                select.append(" ");
+                select.append(order.getValue());
+                select.append(", ");
+            }
+            select.delete(select.length() - 2, select.length());
+        }
+
+        List<Country> countries = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+        } catch (SQLException e) {
+            System.out.println("Something goes wrong inside findBy for Country : " + e.getMessage());
+        }
+        return countries;
+    }
+
+    @Override
     public boolean delete(Country object) {
         boolean isOK = true;
         try {
@@ -70,14 +110,41 @@ public class CountryRepository extends AbstractRepository<Country> {
     }
 
     @Override
-    protected Country update(Country object) throws IncompleteDAOException {
-        throw new IncompleteDAOException("update n'a pas été implémenté...");
-//        return null;
+    protected Country update(Country object) {
+        try {
+            object.setUrlFlag("https://flagcdn.com/32x24/" + object.getCode() + ".png");
+
+            String query = "UPDATE country SET code = ?, name = ?, nationality = ?, slug = ?, url_flag = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(query);
+        } catch (SQLException e) {
+            System.out.println("Something went wrong during update of a Country : " + e.getMessage());
+        }
+        return object;
     }
 
     @Override
-    protected Country insert(Country object) throws IncompleteDAOException {
-        throw new IncompleteDAOException("insert n'a pas été implémenté...");
+    protected Country insert(Country object) {
+        try {
+            object.setUrlFlag("https://flagcdn.com/32x24/" + object.getCode() + ".png");
+
+            String query = "INSERT INTO country VALUES (null, ?, ?, ?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, object.getCode());
+            stmt.setString(2, object.getName());
+            stmt.setString(3, object.getNationality());
+            stmt.setString(4, object.getSlug());
+            stmt.setString(5, object.getUrlFlag());
+            stmt.executeUpdate();
+            // getGeneratedKeys = retourne l'id du dernier objet inséré
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs != null && rs.next()) {
+                // on le set à notre objet de retour
+                object.setId(rs.getLong(1));
+            }
+        } catch (SQLException e) {
+            System.out.println("Something went wrong during insert of a Country : " + e.getMessage());
+        }
+        return object;
     }
 
     @Override

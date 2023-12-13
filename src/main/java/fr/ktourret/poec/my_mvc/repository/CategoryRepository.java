@@ -5,6 +5,7 @@ import fr.ktourret.poec.my_mvc.entity.Country;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 
 public class CategoryRepository extends AbstractRepository<Category> {
 
@@ -28,17 +29,22 @@ public class CategoryRepository extends AbstractRepository<Category> {
     }
 
     @Override
+    public List<Category> findBy(Map<String, Object> fields, Integer limit, Map<String, String> order) {
+        return null;
+    }
+
+    @Override
     public boolean delete(Category object) {
         return false;
     }
 
     @Override
-    protected Category update(Category object) throws IncompleteDAOException {
+    protected Category update(Category object) {
         return null;
     }
 
     @Override
-    protected Category insert(Category object) throws IncompleteDAOException {
+    protected Category insert(Category object) {
         return null;
     }
 }
