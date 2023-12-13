@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 public class Dump {
 
-    public static String dump(Object object) {
+    public static void dump(Object object) {
         Class<?> objectClass = object.getClass();
         StringBuilder sb = new StringBuilder(objectClass.getSimpleName());
         sb.append("\n");
@@ -18,7 +18,11 @@ public class Dump {
                 sb.append(field.getName());
                 sb.append(" : ");
                 String upperCaseFieldName = field.getName().substring(0, 1).toUpperCase() + field.getName().substring(1);
-                Method getter = objectClass.getDeclaredMethod("get" + upperCaseFieldName);
+                String name = "get" + upperCaseFieldName;
+                if (field.getType().getSimpleName().equals("boolean")) {
+                    name = field.getName();
+                }
+                Method getter = objectClass.getDeclaredMethod(name);
                 sb.append(getter.invoke(object));
                 sb.append("\n");
             } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
@@ -26,7 +30,7 @@ public class Dump {
             }
         }
         sb.append(")");
-        return sb.toString();
+        System.out.println(sb);
     }
 
 }

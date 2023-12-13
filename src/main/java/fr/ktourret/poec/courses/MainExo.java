@@ -10,6 +10,7 @@ import fr.ktourret.poec.courses.entity.shape.AbstractShape;
 import fr.ktourret.poec.courses.entity.shape.Circle;
 import fr.ktourret.poec.courses.entity.shape.Rectangle;
 import fr.ktourret.poec.courses.entity.shape.Square;
+import fr.ktourret.poec.my_mvc.service.Dump;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -21,14 +22,14 @@ public class MainExo {
     public MainExo() {
         //        mapExample();
 //        bankExo();
-//        cookMaker();
+        cookMaker();
 //        (new Algo()).test();
 //        (new Spotifish()).test();
 //        (new Scanner()).test();
 //        exceptionExample();
 //        ChessBoard chessBoard = new ChessBoard();
 //        chessBoard.start();
-        singletonExample();
+//        singletonExample();
     }
 
 
