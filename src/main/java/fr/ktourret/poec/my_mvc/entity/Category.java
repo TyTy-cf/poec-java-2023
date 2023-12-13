@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Category {
+public class Category implements EntityInterface {
 
     private Long id;
 

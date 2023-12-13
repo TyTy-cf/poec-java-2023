@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Country {
+public class Country implements EntityInterface {
 
     private Long id;
 
@@ -23,4 +23,20 @@ public class Country {
 
     private String slug;
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(getClass().getSimpleName());
+        sb.append("\n");
+        sb.append("(");
+        sb.append("\n");
+        sb.append("\tid : ");
+        sb.append(id);
+        sb.append("\n");
+        sb.append("\tname : ");
+        sb.append(name);
+        sb.append("\n");
+        sb.append(")");
+        sb.append("\n");
+        return sb.toString();
+    }
 }
