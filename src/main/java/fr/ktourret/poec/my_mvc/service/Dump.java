@@ -7,6 +7,9 @@ import java.lang.reflect.Method;
 public class Dump {
 
     public static void dump(Object object) {
+        if (object == null) {
+            return;
+        }
         Class<?> objectClass = object.getClass();
         StringBuilder sb = new StringBuilder(objectClass.getSimpleName());
         sb.append("\n");

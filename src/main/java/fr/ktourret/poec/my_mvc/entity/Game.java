@@ -1,6 +1,5 @@
 package fr.ktourret.poec.my_mvc.entity;
 
-import fr.ktourret.poec.courses.entity.bank.Operation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

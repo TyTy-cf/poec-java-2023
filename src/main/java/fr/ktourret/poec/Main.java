@@ -13,7 +13,14 @@ public class Main {
         List<Country> countries = cr.findBy(null, 5, null);
         for (Country c : countries) {
             Dump.dump(c);
-        };
+        }
+
+        Country country = cr.findOneBy("code", "ca");
+        if (country != null) {
+            cr.delete(country);
+        }
+//        Dump.dump(country);
+
 
 
 //        System.out.println(country);
