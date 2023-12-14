@@ -4,24 +4,27 @@ import fr.ktourret.poec.my_mvc.entity.Country;
 import fr.ktourret.poec.my_mvc.repository.CountryRepository;
 import fr.ktourret.poec.my_mvc.service.Dump;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
         CountryRepository cr = new CountryRepository();
-        List<Country> countries = cr.findBy(null, 5, null);
-        for (Country c : countries) {
-            Dump.dump(c);
-        }
+        List<Country> countries = cr.findAll();
 
-        Country country = cr.findOneBy("code", "ca");
-        if (country != null) {
-            cr.delete(country);
-        }
+//        countries.forEach(Dump::dump); // identique à code suivant
+////        countries.forEach(c -> {
+////            Dump.dump(c);
+////        });
+//
+//        Country country = cr.findOneBy("code", "ca");
+//        if (country != null) {
+//            cr.delete(country);
+//        }
 //        Dump.dump(country);
-
-
 
 //        System.out.println(country);
 //        List< Country> countries = cr.findAll();
