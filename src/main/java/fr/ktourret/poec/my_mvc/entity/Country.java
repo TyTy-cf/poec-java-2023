@@ -22,21 +22,21 @@ public class Country implements EntityInterface {
     private String urlFlag;
 
     private String slug;
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder(getClass().getSimpleName());
-        sb.append("\n");
-        sb.append("(");
-        sb.append("\n");
-        sb.append("\tid : ");
-        sb.append(id);
-        sb.append("\n");
-        sb.append("\tname : ");
-        sb.append(name);
-        sb.append("\n");
-        sb.append(")");
-        sb.append("\n");
-        return sb.toString();
-    }
+//
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder(getClass().getSimpleName());
+//        sb.append("\n");
+//        sb.append("(");
+//        sb.append("\n");
+//        sb.append("\tid : ");
+//        sb.append(id);
+//        sb.append("\n");
+//        sb.append("\tname : ");
+//        sb.append(name);
+//        sb.append("\n");
+//        sb.append(")");
+//        sb.append("\n");
+//        return sb.toString();
+//    }
 }

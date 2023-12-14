@@ -124,7 +124,7 @@ public class MainExo {
         myRecipe.addComment(c1);
         myRecipe.addComment(c2);
 
-        System.out.println(myRecipe.getRating());
+        Dump.dump(myRecipe);
     }
 
     private static double getRandomBetween(int min, int max) {

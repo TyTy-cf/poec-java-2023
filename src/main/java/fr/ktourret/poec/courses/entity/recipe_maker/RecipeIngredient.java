@@ -25,15 +25,15 @@ public class RecipeIngredient {
         this.qty = qty;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("RecipeIngredient (");
-        sb.append(qty);
-        sb.append(unit);
-        sb.append(" ");
-        sb.append(ingredient.getName());
-        sb.append(")");
-        return sb.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("RecipeIngredient (");
+//        sb.append(qty);
+//        sb.append(unit);
+//        sb.append(" ");
+//        sb.append(ingredient.getName());
+//        sb.append(")");
+//        return sb.toString();
+//    }
 }

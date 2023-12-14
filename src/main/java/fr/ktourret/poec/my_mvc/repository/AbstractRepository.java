@@ -4,14 +4,19 @@ import fr.ktourret.poec.my_mvc.entity.EntityInterface;
 import fr.ktourret.poec.my_mvc.service.DBConnect;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Date;
 
 public abstract class AbstractRepository<T extends EntityInterface> {
 
     protected String tableName;
+
+    protected long queriesFromMap;
+
+    protected long queriesFromDB ;
+
+    protected final Map<String, List<T>> tmpEntities = new HashMap<>();
 
     protected final Connection connection = DBConnect.getConnection();
 
@@ -71,12 +76,21 @@ public abstract class AbstractRepository<T extends EntityInterface> {
         }
         List<T> objects = new ArrayList<>();
         String query = select.toString();
+
+        System.out.println("Query called : " + query);
+        if (tmpEntities.containsKey(query)) {
+            queriesFromMap++;
+            return tmpEntities.get(query);
+        }
+
         try {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()) {
                 objects.add(getObject(rs));
             }
+            queriesFromDB++;
+            tmpEntities.put(query, objects);
         } catch (SQLException e) {
             catchException(e, query);
         }
@@ -110,6 +124,16 @@ public abstract class AbstractRepository<T extends EntityInterface> {
         System.out.println(query);
         System.out.println("\n");
         System.out.println("Message : " + e.getMessage());
+    }
+
+    protected String getDateFormat(Date date) {
+        return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.000000").format(date);
+    }
+
+    public void getRepositoryInfos() {
+        System.out.println("Repository " + this.getClass().getSimpleName() + " : ");
+        System.out.println("Queries from DB : " + queriesFromDB);
+        System.out.println("Queries from temporary objects : " + queriesFromMap);
     }
 
 }

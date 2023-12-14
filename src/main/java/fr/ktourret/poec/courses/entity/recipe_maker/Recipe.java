@@ -68,30 +68,30 @@ public class Recipe {
         return rating / comments.size();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" (");
-        sb.append(getName());
-        sb.append(")");
-        sb.append("\n");
-        sb.append("isAlcoholFree : ");
-        sb.append(isAlcoholFree);
-        sb.append("\n");
-        sb.append("isVegan : ");
-        sb.append(isVegan);
-        sb.append("\n");
-        sb.append("isVegetarian : ");
-        sb.append(isVegetarian);
-        sb.append("\n");
-        sb.append("isGlutenFree : ");
-        sb.append(isGlutenFree);
-        sb.append("\n");
-        for (RecipeIngredient ri : recipeIngredients) {
-            sb.append(ri);
-            sb.append("\n");
-        }
-        return sb.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(getClass().getSimpleName());
+//        sb.append(" (");
+//        sb.append(getName());
+//        sb.append(")");
+//        sb.append("\n");
+//        sb.append("isAlcoholFree : ");
+//        sb.append(isAlcoholFree);
+//        sb.append("\n");
+//        sb.append("isVegan : ");
+//        sb.append(isVegan);
+//        sb.append("\n");
+//        sb.append("isVegetarian : ");
+//        sb.append(isVegetarian);
+//        sb.append("\n");
+//        sb.append("isGlutenFree : ");
+//        sb.append(isGlutenFree);
+//        sb.append("\n");
+//        for (RecipeIngredient ri : recipeIngredients) {
+//            sb.append(ri);
+//            sb.append("\n");
+//        }
+//        return sb.toString();
+//    }
 }

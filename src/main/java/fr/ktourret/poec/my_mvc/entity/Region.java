@@ -5,24 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Publisher implements EntityInterface {
+public class Region implements EntityInterface {
 
     private Long id;
-
-    private Date createdAt;
-
     private String name;
-
-    private String website;
-
-    private String slug;
-
-    private Country country;
+    private String code;
 
 }

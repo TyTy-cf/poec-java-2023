@@ -6,8 +6,17 @@ import java.sql.*;
 
 public class CountryRepository extends AbstractRepository<Country> {
 
-    public CountryRepository() {
+    private static CountryRepository instance;
+
+    private CountryRepository() {
         super("country");
+    }
+
+    public static CountryRepository getInstance() {
+        if (instance == null) {
+            instance = new CountryRepository();
+        }
+        return instance;
     }
 
     @Override
