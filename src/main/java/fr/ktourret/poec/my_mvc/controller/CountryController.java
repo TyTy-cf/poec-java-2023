@@ -1,6 +1,6 @@
 package fr.ktourret.poec.my_mvc.controller;
 
-import fr.ktourret.poec.my_mvc.entity.Country;
+import fr.ktourret.poec.my_mvc.entity.instant_faking.Country;
 import fr.ktourret.poec.my_mvc.service.entity.CountryService;
 import fr.ktourret.poec.my_mvc.view.CountryView;
 

@@ -1,6 +1,6 @@
 package fr.ktourret.poec.my_mvc.repository;
 
-import fr.ktourret.poec.my_mvc.entity.Country;
+import fr.ktourret.poec.my_mvc.entity.instant_faking.Country;
 
 import java.sql.*;
 

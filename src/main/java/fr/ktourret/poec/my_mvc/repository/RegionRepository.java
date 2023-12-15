@@ -1,6 +1,5 @@
 package fr.ktourret.poec.my_mvc.repository;
 
-import fr.ktourret.poec.my_mvc.entity.Category;
 import fr.ktourret.poec.my_mvc.entity.Region;
 
 import java.sql.PreparedStatement;

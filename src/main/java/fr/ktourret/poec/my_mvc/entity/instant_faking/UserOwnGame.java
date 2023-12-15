@@ -1,4 +1,4 @@
-package fr.ktourret.poec.my_mvc.entity;
+package fr.ktourret.poec.my_mvc.entity.instant_faking;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

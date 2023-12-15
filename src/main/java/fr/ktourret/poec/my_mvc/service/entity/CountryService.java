@@ -1,7 +1,7 @@
 package fr.ktourret.poec.my_mvc.service.entity;
 
 import fr.ktourret.poec.my_mvc.dao.DAOService;
-import fr.ktourret.poec.my_mvc.entity.Country;
+import fr.ktourret.poec.my_mvc.entity.instant_faking.Country;
 import fr.ktourret.poec.my_mvc.repository.CountryRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package fr.ktourret.poec.my_mvc.repository;
 
-import fr.ktourret.poec.my_mvc.entity.Publisher;
+import fr.ktourret.poec.my_mvc.entity.instant_faking.Publisher;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
