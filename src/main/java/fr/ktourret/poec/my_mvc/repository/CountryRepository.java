@@ -12,7 +12,7 @@ public class CountryRepository extends AbstractRepository<Country> {
         super("country");
     }
 
-    public static CountryRepository getInstance() {
+    public static CountryRepository getRepository() {
         if (instance == null) {
             instance = new CountryRepository();
         }
@@ -23,6 +23,7 @@ public class CountryRepository extends AbstractRepository<Country> {
     protected Country update(Country object) {
         try {
             object.setUrlFlag("https://flagcdn.com/32x24/" + object.getCode() + ".png");
+            object.setSlug(object.getName().toLowerCase());
 
             String query = "UPDATE country SET code = ?, name = ?, nationality = ?, slug = ?, url_flag = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(query);
@@ -43,6 +44,7 @@ public class CountryRepository extends AbstractRepository<Country> {
     protected Country insert(Country object) {
         try {
             object.setUrlFlag("https://flagcdn.com/32x24/" + object.getCode() + ".png");
+            object.setSlug(object.getName().toLowerCase());
 
             String query = "INSERT INTO country VALUES (null, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);

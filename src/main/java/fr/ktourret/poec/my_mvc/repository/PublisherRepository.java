@@ -1,6 +1,5 @@
 package fr.ktourret.poec.my_mvc.repository;
 
-import fr.ktourret.poec.my_mvc.entity.Country;
 import fr.ktourret.poec.my_mvc.entity.Publisher;
 
 import java.sql.PreparedStatement;
@@ -9,12 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PublisherRepository extends AbstractRepository<Publisher> {
 
-    private CountryRepository countryRepository = CountryRepository.getInstance();
+    private CountryRepository countryRepository = CountryRepository.getRepository();
 
     public PublisherRepository() {
         super("publisher");

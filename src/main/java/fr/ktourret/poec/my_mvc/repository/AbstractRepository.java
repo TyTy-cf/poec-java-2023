@@ -39,12 +39,17 @@ public abstract class AbstractRepository<T extends EntityInterface> {
     }
 
     public final T findOneBy(String field, Object value) {
+        // Instancier une map avec des String en clé et Object en valeur
         Map<String, Object> fields = new HashMap<>();
+        // J'ajoute les paramètres de la fonction dans la map
         fields.put(field, value);
+        // Récupérer le retour de la fonction findBy, auquel on passe la map en 1er paramètre
         List<T> objects = findBy(fields, null, null);
+        // Si ma liste est vide, je renvoie null
         if (objects.isEmpty()) {
             return null;
         }
+        // je renvoie le premier élément de la liste
         return objects.get(0);
     }
 
@@ -128,12 +133,6 @@ public abstract class AbstractRepository<T extends EntityInterface> {
 
     protected String getDateFormat(Date date) {
         return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.000000").format(date);
-    }
-
-    public void getRepositoryInfos() {
-        System.out.println("Repository " + this.getClass().getSimpleName() + " : ");
-        System.out.println("Queries from DB : " + queriesFromDB);
-        System.out.println("Queries from temporary objects : " + queriesFromMap);
     }
 
 }
