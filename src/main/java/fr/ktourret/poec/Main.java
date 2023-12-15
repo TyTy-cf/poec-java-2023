@@ -12,7 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
         PokeApiService pas = new PokeApiService();
-
+        for (int i = 0; i < 11000; i++) {
+            pas.getPokemon(i);
+        }
     }
 
     private static void testApiPost() {

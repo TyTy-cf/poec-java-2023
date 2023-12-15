@@ -12,26 +12,13 @@ import fr.ktourret.poec.courses.entity.shape.Rectangle;
 import fr.ktourret.poec.courses.entity.shape.Square;
 import fr.ktourret.poec.my_mvc.service.Dump;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MainExo {
 
-    public MainExo() {
-        //        mapExample();
-//        bankExo();
-        cookMaker();
-//        (new Algo()).test();
-//        (new Spotifish()).test();
-//        (new Scanner()).test();
-//        exceptionExample();
-//        ChessBoard chessBoard = new ChessBoard();
-//        chessBoard.start();
-//        singletonExample();
+    public static void main(String[] args) {
+        bankExo();
     }
-
 
     private static void singletonExample() {
         Singleton singleton = Singleton.getInstance();
@@ -101,6 +88,7 @@ public class MainExo {
         ba.addOperation(new Operation(-76.0, "Insurance", new Date()));
         ba.addOperation(new Operation(-45.0, "Internet", new Date()));
         ba.addOperation(new Operation(-90.0, "Elec/Gas", new Date()));
+        Dump.dump(ba);
     }
 
     private static void cookMaker() {

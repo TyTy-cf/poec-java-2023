@@ -1,5 +1,7 @@
 package fr.ktourret.poec.my_mvc.service;
 
+import org.json.JSONObject;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,7 +15,7 @@ public class Dump {
         return myPackage[0] + "." + myPackage[1] + "." + myPackage[2];
     }
 
-    public static void dump(Object object) {
+    public static void test(Object object) {
         System.out.println(dumper(object, 1));
     }
 
@@ -66,6 +68,17 @@ public class Dump {
         sb.append("}");
         sb.append("\n");
         return sb.toString();
+    }
+
+    public static void json(String json) {
+        JSONObject jsonObject = new JSONObject(json);
+        System.out.println(jsonObject.toString(4)); // Print it with specified indentation
+    }
+
+    public static void dump(Object o) {
+        JSONObject jsonObject = new JSONObject(o);
+        String str = o.getClass().getSimpleName() + " " + jsonObject.toString(4);
+        System.out.println(str);
     }
 
 }
