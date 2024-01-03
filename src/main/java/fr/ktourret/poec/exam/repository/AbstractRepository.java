@@ -3,6 +3,7 @@ package fr.ktourret.poec.exam.repository;
 import fr.ktourret.poec.exam.entity.EntityInterface;
 import fr.ktourret.poec.exam.service.DBConnect;
 
+import javax.management.Query;
 import java.sql.*;
 import java.util.*;
 
@@ -96,7 +97,22 @@ public abstract class AbstractRepository<T extends EntityInterface> {
         return objects;
     }
 
-    private void catchException(Exception e, String query) {
+    protected int findPopulationByQuery(String query, Long id) {
+        int population = 0;
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                population = rs.getInt("population");
+            }
+        } catch (SQLException e) {
+            catchException(e, query);
+        }
+        return population;
+    }
+
+    protected void catchException(Exception e, String query) {
         System.out.println("Someting goes wrong with this query :\n");
         System.out.println(query);
         System.out.println("\n");

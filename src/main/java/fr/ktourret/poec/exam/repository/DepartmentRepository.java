@@ -23,6 +23,14 @@ public class DepartmentRepository extends AbstractRepository<Department> {
         return findBy(fields, null, null);
     }
 
+    public int findPopulationByDepartment(Department department) {
+        String query =
+                "SELECT SUM(city.population) AS 'population' " +
+                "FROM department JOIN city ON city.department_id = department.id " +
+                "WHERE department.id = ?;";
+        return this.findPopulationByQuery(query, department.getId());
+    }
+
     @Override
     protected Department getObject(ResultSet rs) {
         Department department = new Department();

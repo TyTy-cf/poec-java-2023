@@ -11,6 +11,16 @@ public class RegionRepository extends AbstractRepository<Region> {
         super("region");
     }
 
+    public int findPopulationByRegion(Region region) {
+        String query =
+                "SELECT SUM(city.population) AS 'population' " +
+                "FROM region " +
+                "JOIN department ON department.region_id = region.id " +
+                "JOIN city ON city.department_id = department.id " +
+                "WHERE region.id = ?;";
+        return this.findPopulationByQuery(query, region.getId());
+    }
+
     @Override
     protected Region getObject(ResultSet rs) {
         Region region = new Region();
